@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="baidu-site-verification" content="mtEkuH1Xca">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="通过这个博客，希望将自己学到的成果总结出来，与大家一起分享交流">
+  <meta name="keywords" content="独立博客，独立博客，技术开发，前端开发，技术总结，技术分享">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>国内外优秀的前端可视化框架推荐 | huip</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+</head>
+
+<body>
+  <style type="text/css">
+    header.intro-header {
+        background-image: url('/assets/banners/post.jpg')
+        
+    }
+    
+</style>
+
+<header class="intro-header">
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                            <a class="tag" href="/tags/#数据可视化" title="数据可视化">
+                                数据可视化</a>
+                            
+                        </div>
+                        <h1>
+                            国内外优秀的前端可视化框架推荐
+                        </h1>
+                        <h2 class="subheading">
+                            
+                        </h2>
+                        <span class="meta">
+                            作者：
+                            huip 发布时间：
+                            2018-11-22
+                        </span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                huip
+            </a>
+        </div>
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                        <li>
+                        
+                            <a href="/">首页</a>
+                        
+                        </li>
+                    
+                        <li>
+                        
+                            <a href="/about">关于</a>
+                        
+                        </li>
+                    
+                        <li>
+                        
+                            <a href="/archives">归档</a>
+                        
+                        </li>
+                    
+                        <li>
+                        
+                            <a href="/tags">标签</a>
+                        
+                        </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            $navbar.className = " ";
+            setTimeout(function () {
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+  <main id="post">
+    <div class="content">
+        <article>
+            <section class="content markdown-body">
+                <!-- <h1>
+                    国内外优秀的前端可视化框架推荐
+                </h1> -->
+                <!-- <div class='post-meta'>
+                    <i class="fa fa-calendar" aria-hidden="true"></i> <time>
+                        2018/11/22</time>
+                    
+                    | <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+                    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端资源/">前端资源</a>
+  </div>
+
+                    
+                    
+                    |
+                    
+                    <i class="fa fa-tag" aria-hidden="true"></i>
+                    
+                    
+  <a href="/tags/#数据可视化" class="tag">数据可视化</a>
+
+
+                    
+                </div> -->
+
+                <p>当前大数据，机器学习等异常火热，每天都能看到各种AI替代人类某些职业的新闻。数据是包含某种信息组合的载体，大数据归根结底是将大量的数据提炼出来，形成人类理解的自然语言，为人们做商业决策时提供支持。</p>
+<p>图像是人类理解事物的最好载体，因此如何将冰冷的数据转换成漂亮的图表就变得非常重要，好的图表不管是在展示产品或者内部PPT答辩都能起到事半工倍的效果。</p>
+<p>接下来将为大家介绍国内外几大数据可视化前端框架。</p>
+<h3 id="数据可视化框架列表"><a href="#数据可视化框架列表" class="headerlink" title="数据可视化框架列表"></a>数据可视化框架列表</h3><h4 id="Echarts"><a href="#Echarts" class="headerlink" title="Echarts"></a>Echarts</h4><p><img src="/assets/charts-frameworks/echarts.png" alt="Echarts"></p>
+<p>简介：ECharts，缩写来自Enterprise Charts，商业级数据图表，它最初是为了满足公司商业体系里各种业务系统（如凤巢、广告管家等等）的报表需求。</p>
+<p>Github Stars：31,216</p>
+<p><a href="/go/?to=http://echarts.baidu.com/examples/" target="_blank">预览地址</a></p>
+<p><a href="/go/?to=https://github.com/apache/incubator-echarts" target="_blank">Github地址</a></p>
+<h4 id="AntV-G2"><a href="#AntV-G2" class="headerlink" title="AntV G2"></a>AntV G2</h4><p><img src="/assets/charts-frameworks/antvg2.png" alt="AntV G2"></p>
+<p>简介：G2 是一套基于可视化编码的图形语法，以数据驱动，具有高度的易用性和扩展性，用户无需关注各种繁琐的实现细节，一条语句即可构建出各种各样的可交互的统计图表。</p>
+<p>Github Stars：6,614</p>
+<p><a href="/go/?to=https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html" target="_blank">预览地址</a></p>
+<p><a href="/go/?to=https://github.com/antvis/g2" target="_blank">Github地址</a></p>
+<h4 id="Charts"><a href="#Charts" class="headerlink" title="Charts"></a>Charts</h4><p><img src="/assets/charts-frameworks/chartjs.png" alt="charts"></p>
+<p>简介：简单易用的基于Canvas实现的js图表库</p>
+<p>Github Stars：40,417</p>
+<p><a href="/go/?to=https://www.chartjs.org/" target="_blank">预览地址</a></p>
+<p><a href="/go/?to=https://github.com/chartjs/Chart.js" target="_blank">Github地址</a></p>
+<h4 id="D3-js"><a href="#D3-js" class="headerlink" title="D3.js"></a>D3.js</h4><p><img src="/assets/charts-frameworks/d3js.png" alt="d3.js"></p>
+<p>简介：D3.js（D3或Data-Driven Documents）是一个使用动态图形进行数据可视化的JavaScript程序库。与W3C标准兼容，并且利用广泛实现的SVG、JavaScript和CSS标准，改良自早期的Protovis程序库。与其他的程序库相比，D3对视图结果有很大的可控性。D3是2011年面世的，同年的8月发布了2.0.0版。到2018年4月，D3已被更新到了5.5.0版。</p>
+<p>D3.js已被数十万个网站使用，最常被运用在在线新闻网站呈现交互式图形、呈现数据数据的图表和呈现含有地理信息的数据。另外SVG的输出功能也使得D3.js能用于印刷出版物的绘制上。</p>
+<p>Github Stars：80,363</p>
+<p><a href="/go/?to=https://d3js.org/" target="_blank">预览地址</a></p>
+<p><a href="/go/?to=https://github.com/d3/d3" target="_blank">Github地址</a></p>
+<h4 id="Tauchart-js"><a href="#Tauchart-js" class="headerlink" title="Tauchart.js"></a>Tauchart.js</h4><p><img src="/assets/charts-frameworks/taucharts.png" alt="d3.js"></p>
+<p>简介：基于D3.js实现的专注于数据图表的js框架。</p>
+<p>Github Stars：1,731</p>
+<p><a href="/go/?to=https://www.taucharts.com/" target="_blank">预览地址</a></p>
+<p><a href="/go/?to=https://github.com/TargetProcess/tauCharts/" target="_blank">Github地址</a></p>
+
+                
+                <div class="money-like" id="like-money">
+                    <div class="reward-button">赏
+                        <span class="money-code">
+                            <span class="alipay-code">
+                                <a href="javascript:;">
+                                    <img class="alipay-img" src="/assets/renew/zhb-qrcode.png"><b>支付宝扫码打赏</b>
+                                </a>
+                            </span>
+                            <span class="wechat-code">
+                                <a href="javascript:;">
+                                    <img class="wechat-img" src="/assets/renew/wx-qrcode.png"><b>微信扫码打赏</b>
+                                </a>
+                            </span>
+                        </span>
+                    </div>
+                    <p class="money-notice">如果你认为我的文章对你有帮助,欢迎点击上方按钮对我打赏</p>
+                </div>
+                
+                
+                <h3>推荐阅读</h3>
+                
+
+                
+                <p><a href="what-differents-bettwen-px-em-rem.html">详解CSS中的度量单位px|em|rem</a></p>
+                
+
+                
+                <p><a href="best-five-front-end-dashboard-frameworks.html">2018年5大前端中台模板推荐</a></p>
+                
+            </section>
+        </article>
+
+
+
+        
+        <!-- disqus 评论框 start -->
+        <div class="comment">
+            <div id="gitalk-container"></div>
+        </div>
+        <!-- disqus 评论框 end -->
+        
+    </div>
+
+    <aside>
+        
+        <div class="toc-container">
+            <div>
+                <h1>目录</h1>
+                <div class="content">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据可视化框架列表"><span class="toc-number">1.</span> <span class="toc-text">数据可视化框架列表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Echarts"><span class="toc-number">1.1.</span> <span class="toc-text">Echarts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AntV-G2"><span class="toc-number">1.2.</span> <span class="toc-text">AntV G2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Charts"><span class="toc-number">1.3.</span> <span class="toc-text">Charts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#D3-js"><span class="toc-number">1.4.</span> <span class="toc-text">D3.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tauchart-js"><span class="toc-number">1.5.</span> <span class="toc-text">Tauchart.js</span></a></li></ol></li></ol>
+                </div>
+            </div>
+            <div class="link">
+                友链:<a href="https://indie1024.com?source=huip">indie1024-中国独立开发者列表</a>
+            </div>
+        </div>
+        
+
+    </aside>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var clientID = "79c2731c565cbb9ed73b";
+    var clientSecret = "68d6fd68283e05517ef76929eafc4ca2b977d10e";
+    var repo = "huipBlogComments";
+    var owner = "huip";
+    var admin = "huip";
+    var gitalk = new Gitalk({
+        clientID: clientID,
+        clientSecret: clientSecret,
+        repo: repo,
+        owner: owner,
+        admin: admin,
+        id: location.pathname, // Ensure uniqueness and length less than 50
+        distractionFreeMode: true // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+  <footer>
+    <div class="copyright">
+        <div>
+            &copy;
+            2019 | Powered by <a href="/" target="_blank">huip</a>&nbsp
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+    var isDown = true
+    var oldY = 0
+    inView.offset(50)
+
+    document.body.addEventListener('touchstart', function () {});
+
+    window.addEventListener('scroll', _.throttle(e => {
+        var currentY = window.scrollY
+        if ((oldY - currentY) < 0) {
+            isDown = true
+        } else {
+            isDown = false
+        }
+        oldY = currentY
+    }, 250))
+
+    $("article img").each(function () {
+        var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+        $(this).wrapAll(strA);
+    });
+
+    $('.toc-link').each(function () {
+        var href = $(this).attr("href");
+
+        inView(href).on('exit', () => {
+            if (isDown) {
+                handleActive(href)
+            }
+        })
+
+        inView(href).on('enter', () => {
+            if (!isDown) {
+                handleActive(href)
+            }
+        })
+
+        this.onclick = function (e) {
+            var pos = $(href).offset().top - 10;
+            $("html,body").animate({
+                scrollTop: pos
+            }, 300);
+            setTimeout(() => {
+                handleActive(href)
+            }, 350)
+            return false
+        }
+    })
+
+    function handleActive(href) {
+        document.querySelectorAll('.toc-link').forEach(elm => {
+            elm.classList.remove('active')
+        })
+        document.querySelector(".toc [href='" + href + "']").classList.add('active')
+    }
+</script>
+
+<script src="/js/script.js"></script>
+<script src="/lib/jquery.fancybox.min.js"></script>
+
+
+<script>
+    var url = window.location.href
+    if (url.indexOf('localhost') == -1) {
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?b8680f66d838085ad9f63b7c22e20726";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-45976880-1', 'auto');
+        ga('send', 'pageview');
+    }
+</script>
+</body>
+</html>

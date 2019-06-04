@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="baidu-site-verification" content="mtEkuH1Xca">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="通过这个博客，希望将自己学到的成果总结出来，与大家一起分享交流">
+  <meta name="keywords" content="独立博客，独立博客，技术开发，前端开发，技术总结，技术分享">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>详解CSS中的度量单位px|em|rem | huip</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+</head>
+
+<body>
+  <style type="text/css">
+    header.intro-header {
+        background-image: url('/assets/banners/post.jpg')
+        
+    }
+    
+</style>
+
+<header class="intro-header">
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                            <a class="tag" href="/tags/#CSS" title="CSS">
+                                CSS</a>
+                            
+                        </div>
+                        <h1>
+                            详解CSS中的度量单位px|em|rem
+                        </h1>
+                        <h2 class="subheading">
+                            
+                        </h2>
+                        <span class="meta">
+                            作者：
+                            huip 发布时间：
+                            2018-11-26
+                        </span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                huip
+            </a>
+        </div>
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                        <li>
+                        
+                            <a href="/">首页</a>
+                        
+                        </li>
+                    
+                        <li>
+                        
+                            <a href="/about">关于</a>
+                        
+                        </li>
+                    
+                        <li>
+                        
+                            <a href="/archives">归档</a>
+                        
+                        </li>
+                    
+                        <li>
+                        
+                            <a href="/tags">标签</a>
+                        
+                        </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            $navbar.className = " ";
+            setTimeout(function () {
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+  <main id="post">
+    <div class="content">
+        <article>
+            <section class="content markdown-body">
+                <!-- <h1>
+                    详解CSS中的度量单位px|em|rem
+                </h1> -->
+                <!-- <div class='post-meta'>
+                    <i class="fa fa-calendar" aria-hidden="true"></i> <time>
+                        2018/11/26</time>
+                    
+                    | <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+                    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端基础/">前端基础</a>
+  </div>
+
+                    
+                    
+                    |
+                    
+                    <i class="fa fa-tag" aria-hidden="true"></i>
+                    
+                    
+  <a href="/tags/#CSS" class="tag">CSS</a>
+
+
+                    
+                </div> -->
+
+                <p>在前端开发过程中，我们将大量的时间都花在了页面布局开发上，在页面布局开发中我们又把很多的精力放在了如何处理网页中的排版问题，而其中最让我迷惑的是如何正确的使用px,em,rem这几个网页中常见的度量单位，相信这几个单位在开发过程中也困扰过你，到现在也还没有真正弄明白.</p>
+<p>本篇文章我将介绍这几个度量单位的特性以及如何正确使用它们。</p>
+<h2 id="px"><a href="#px" class="headerlink" title="px"></a>px</h2><p>像素是静态的度量单位。它是一个跨平台的、跨浏览器的精确设置字体大小的方法。由于不同浏览器为实现相同的显示效果而使用了不同的渲染算法，所以最终给大家呈现出来显示效果可能会有微小的差异。</p>
+<h2 id="em"><a href="#em" class="headerlink" title="em"></a>em</h2><p>em是动态的度量单位。1em等于元素的父元素的字体大小，如果你在网页中任何位置都没有设置文字大小的话，那么1em将等于浏览器默认的文字大小，通常是16px。你可以通过以下的计算公式换算你想要的em值：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">em</span> = 希望得到的像素大小 / 父元素字体像素大小</span><br></pre></td></tr></table></figure>
+<p>例如，假设body的文字大小设为1em，且浏览器默认1em = 16px。如果你想得到12px，那你就可设定0.75em (12/16 = 0.75)。同样的，如果你想设定文字大小为10px，那就定义0.625em (10/16 = 0.625)；若想要22px就定义1.375em (22/16 = 1.375)。</p>
+<p>通常我们对10进制的转换体系比较熟悉，因此为了方便的使用em，我们通常会将body的字体大小设置为62.5%(16 x 62.5 = 10)。这样网页的基准单位就是10px了，我们能够快速的通过10进制来转换来计算出我们想要设置的字体大小了。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">62.5%</span>; <span class="comment">/* 1em = 10px */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1.6em</span>; <span class="comment">/* 1.6em = 16px */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于em可以自动适应用户的字体，em是一个非常有用的CSS单位</p>
+<h2 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h2><p>rem是一个相对于html根节点的度量单位。由于rem和父节点无关，因此假设根节点的字体大小为16px,那么对于所有的页面元素来说 1rem = 16px。如果没有特殊指明根节点的字体大小，1rem就等于浏览器的默认字体大小（通常为16px）</p>
+<p>同样的在使用rem过程中为了更直观的去计算rem和px的对应关系，我们通常在使用rem时也会将html的字体大小设置为62.5%</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">62.5%</span> <span class="comment">/* 1rem = 10px */</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1.6rem</span>; <span class="comment">/* 1.6rem = 16px */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过以上的介绍我们基本上对px,em,rem有了比较深入的了解，根据以上的总结我们得出以下各个单位的使用情况。</p>
+<p>px:适用于有特定大小的资源比如图片</p>
+<p>em:适用于局部的排版布局，比如设置局部的padding margin,border等</p>
+<p>rem:适用于网页中父级资源的大小设置</p>
+<p>下面写一段CSS简单的布局实例来具体说明这个问题</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">62.5%</span>; <span class="comment">/* 将页面的基础字体大小设置成为10px */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1.6rem</span>; <span class="comment">/*将页面正文的字体设置为16px*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">2em</span>; <span class="comment">/*将页面中的p标点的字体大小设置为32px */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.gravator</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">32px</span>; <span class="comment">/* 将页面中的.gravator类的宽度设置为32px */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上适用场景的定义不是绝对的，需要根据每个人的习惯来选择，总结出来一套自己的页面布局方案才是最好的。</p>
+
+                
+                <div class="money-like" id="like-money">
+                    <div class="reward-button">赏
+                        <span class="money-code">
+                            <span class="alipay-code">
+                                <a href="javascript:;">
+                                    <img class="alipay-img" src="/assets/renew/zhb-qrcode.png"><b>支付宝扫码打赏</b>
+                                </a>
+                            </span>
+                            <span class="wechat-code">
+                                <a href="javascript:;">
+                                    <img class="wechat-img" src="/assets/renew/wx-qrcode.png"><b>微信扫码打赏</b>
+                                </a>
+                            </span>
+                        </span>
+                    </div>
+                    <p class="money-notice">如果你认为我的文章对你有帮助,欢迎点击上方按钮对我打赏</p>
+                </div>
+                
+                
+                <h3>推荐阅读</h3>
+                
+
+                
+
+                
+                <p><a href="the-best-data-visualization-frameworks.html">国内外优秀的前端可视化框架推荐</a></p>
+                
+            </section>
+        </article>
+
+
+
+        
+        <!-- disqus 评论框 start -->
+        <div class="comment">
+            <div id="gitalk-container"></div>
+        </div>
+        <!-- disqus 评论框 end -->
+        
+    </div>
+
+    <aside>
+        
+        <div class="toc-container">
+            <div>
+                <h1>目录</h1>
+                <div class="content">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#px"><span class="toc-number">1.</span> <span class="toc-text">px</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#em"><span class="toc-number">2.</span> <span class="toc-text">em</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rem"><span class="toc-number">3.</span> <span class="toc-text">rem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+                </div>
+            </div>
+            <div class="link">
+                友链:<a href="https://indie1024.com?source=huip">indie1024-中国独立开发者列表</a>
+            </div>
+        </div>
+        
+
+    </aside>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var clientID = "79c2731c565cbb9ed73b";
+    var clientSecret = "68d6fd68283e05517ef76929eafc4ca2b977d10e";
+    var repo = "huipBlogComments";
+    var owner = "huip";
+    var admin = "huip";
+    var gitalk = new Gitalk({
+        clientID: clientID,
+        clientSecret: clientSecret,
+        repo: repo,
+        owner: owner,
+        admin: admin,
+        id: location.pathname, // Ensure uniqueness and length less than 50
+        distractionFreeMode: true // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+  <footer>
+    <div class="copyright">
+        <div>
+            &copy;
+            2019 | Powered by <a href="/" target="_blank">huip</a>&nbsp
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+    var isDown = true
+    var oldY = 0
+    inView.offset(50)
+
+    document.body.addEventListener('touchstart', function () {});
+
+    window.addEventListener('scroll', _.throttle(e => {
+        var currentY = window.scrollY
+        if ((oldY - currentY) < 0) {
+            isDown = true
+        } else {
+            isDown = false
+        }
+        oldY = currentY
+    }, 250))
+
+    $("article img").each(function () {
+        var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+        $(this).wrapAll(strA);
+    });
+
+    $('.toc-link').each(function () {
+        var href = $(this).attr("href");
+
+        inView(href).on('exit', () => {
+            if (isDown) {
+                handleActive(href)
+            }
+        })
+
+        inView(href).on('enter', () => {
+            if (!isDown) {
+                handleActive(href)
+            }
+        })
+
+        this.onclick = function (e) {
+            var pos = $(href).offset().top - 10;
+            $("html,body").animate({
+                scrollTop: pos
+            }, 300);
+            setTimeout(() => {
+                handleActive(href)
+            }, 350)
+            return false
+        }
+    })
+
+    function handleActive(href) {
+        document.querySelectorAll('.toc-link').forEach(elm => {
+            elm.classList.remove('active')
+        })
+        document.querySelector(".toc [href='" + href + "']").classList.add('active')
+    }
+</script>
+
+<script src="/js/script.js"></script>
+<script src="/lib/jquery.fancybox.min.js"></script>
+
+
+<script>
+    var url = window.location.href
+    if (url.indexOf('localhost') == -1) {
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?b8680f66d838085ad9f63b7c22e20726";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-45976880-1', 'auto');
+        ga('send', 'pageview');
+    }
+</script>
+</body>
+</html>

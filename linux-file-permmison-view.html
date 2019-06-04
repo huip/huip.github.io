@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="baidu-site-verification" content="mtEkuH1Xca">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="通过这个博客，希望将自己学到的成果总结出来，与大家一起分享交流">
+  <meta name="keywords" content="独立博客，独立博客，技术开发，前端开发，技术总结，技术分享">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>linux文件系统权限详解 | huip</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+</head>
+
+<body>
+  <style type="text/css">
+    header.intro-header {
+        background-image: url('/assets/banners/post.jpg')
+        
+    }
+    
+</style>
+
+<header class="intro-header">
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                            <a class="tag" href="/tags/#系统权限" title="系统权限">
+                                系统权限</a>
+                            
+                        </div>
+                        <h1>
+                            linux文件系统权限详解
+                        </h1>
+                        <h2 class="subheading">
+                            
+                        </h2>
+                        <span class="meta">
+                            作者：
+                            huip 发布时间：
+                            2018-10-20
+                        </span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                huip
+            </a>
+        </div>
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                        <li>
+                        
+                            <a href="/">首页</a>
+                        
+                        </li>
+                    
+                        <li>
+                        
+                            <a href="/about">关于</a>
+                        
+                        </li>
+                    
+                        <li>
+                        
+                            <a href="/archives">归档</a>
+                        
+                        </li>
+                    
+                        <li>
+                        
+                            <a href="/tags">标签</a>
+                        
+                        </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            $navbar.className = " ";
+            setTimeout(function () {
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+  <main id="post">
+    <div class="content">
+        <article>
+            <section class="content markdown-body">
+                <!-- <h1>
+                    linux文件系统权限详解
+                </h1> -->
+                <!-- <div class='post-meta'>
+                    <i class="fa fa-calendar" aria-hidden="true"></i> <time>
+                        2018/10/20</time>
+                    
+                    | <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+                    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+                    
+                    
+                    |
+                    
+                    <i class="fa fa-tag" aria-hidden="true"></i>
+                    
+                    
+  <a href="/tags/#系统权限" class="tag">系统权限</a>
+
+
+                    
+                </div> -->
+
+                <p>  linux系统是一种多用户的操作系统，为了保证文件的安全性，linux系统的提出了『所有者』和『权限』这两个概念，通过这两个概念控制用户是否可以查看或者修改文件。在接下来的文章中，我们将学习这两个概念，并介绍如何通过命令去操作它们。</p>
+<h3 id="用户和用户组"><a href="#用户和用户组" class="headerlink" title="用户和用户组"></a>用户和用户组</h3><p>在我们讨论『所有者』这个概念之前，我们先了解一下什么是『用户』和『用户组』。linux系统通过『用户』的概念去区分使用系统的所有用户，每个用户都有属于它们自己的一些属性，比如『用户ID』和『用户目录』。为了更好的管理用户，我们通常会将用户加入一个用户组。</p>
+<p>如果你想查看你系统上的所有用户，你可以通过在终端中输入下面的命令查看</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/password</span><br><span class="line"></span><br><span class="line"><span class="meta">##</span></span><br><span class="line"><span class="meta"># User Database</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Note that this file is consulted directly only when the system is running</span></span><br><span class="line"><span class="meta"># in single-user mode.  At other times this information is provided by</span></span><br><span class="line"><span class="meta"># Open Directory.</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># See the opendirectoryd(8) man page for additional information about</span></span><br><span class="line"><span class="meta"># Open Directory.</span></span><br><span class="line"><span class="meta">##</span></span><br><span class="line">nobody:*:<span class="number">-2</span>:<span class="number">-2</span>:Unprivileged User:/<span class="keyword">var</span>/empty:/usr/bin/<span class="literal">false</span></span><br><span class="line">root:*:<span class="number">0</span>:<span class="number">0</span>:System Administrator:/<span class="keyword">var</span>/root:/bin/sh</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>命令行每一行会详细的列出用户的信息，每一行『：』之前的就是用户的用户名</p>
+<p>同样的，你可以通过运行下面的命令行查看所有的『用户组』</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/group</span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment"># Group Database</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Note that this file is consulted directly only when the system is running</span></span><br><span class="line"><span class="comment"># in single-user mode.  At other times this information is provided by</span></span><br><span class="line"><span class="comment"># Open Directory.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># See the opendirectoryd(8) man page for additional information about</span></span><br><span class="line"><span class="comment"># Open Directory.</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line">nobody:*:-2:</span><br><span class="line">nogroup:*:-1:</span><br><span class="line"><span class="built_in">..</span>.</span><br></pre></td></tr></table></figure>
+<p>同样的，每一行『：』之前的就是用户的用户组。</p>
+<p>当你运行上面的命令的时候，你会看到一些不是你创建的用户和用户组，它们属于系统用户和系统用户组。</p>
+<h3 id="所有者和权限"><a href="#所有者和权限" class="headerlink" title="所有者和权限"></a>所有者和权限</h3><p>在linux系统中，我们通过权限来控制一个用户是否可以操作文件和目录。linux系统有三种权限：</p>
+<table>
+<thead>
+<tr>
+<th>权限名称</th>
+<th>文件</th>
+<th>目录</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read（可读）</td>
+<td>用户可以查看文件的内容</td>
+<td>用户是否可以查看目录下的文件或者是子目录</td>
+</tr>
+<tr>
+<td>Write（可写）</td>
+<td>用户可以修改和删除文件</td>
+<td>用户可以修改文件内容（创建、删除和重命名目录下的文件）。然而，该权限对目录没有作用除非该目录同时具备可执行权限</td>
+</tr>
+<tr>
+<td>Execute（可执行）</td>
+<td>可写的权限允许被执行。只有可读权限被开启时可执行权限才会生效</td>
+<td>可写权限允许用户进入该目录的子目录和查看该目录下的文件的元数据</td>
+</tr>
+</tbody>
+</table>
+<p>你可能会想：为什么可写权限不能作用于目录如果该目录没有可执行权限？这是因为只有被设置了可执行的目录才能被检索到。 如果没有设置可执行权限，操作系统不能准确的知道该目录是否真正的具备可写权限。</p>
+<p>文件和目录只能被<strong>一个用户和用户组</strong>所拥有。当文件或者目录被创建时，文件的『所有者』就为创建它用户和该用户所在的用户组。</p>
+
+                
+                <div class="money-like" id="like-money">
+                    <div class="reward-button">赏
+                        <span class="money-code">
+                            <span class="alipay-code">
+                                <a href="javascript:;">
+                                    <img class="alipay-img" src="/assets/renew/zhb-qrcode.png"><b>支付宝扫码打赏</b>
+                                </a>
+                            </span>
+                            <span class="wechat-code">
+                                <a href="javascript:;">
+                                    <img class="wechat-img" src="/assets/renew/wx-qrcode.png"><b>微信扫码打赏</b>
+                                </a>
+                            </span>
+                        </span>
+                    </div>
+                    <p class="money-notice">如果你认为我的文章对你有帮助,欢迎点击上方按钮对我打赏</p>
+                </div>
+                
+                
+                <h3>推荐阅读</h3>
+                
+
+                
+                <p><a href="front-end-engineer-must-reading-ten-books.html">前端开发工程师必读的10本书</a></p>
+                
+
+                
+                <p><a href="cookie-localstorage-sessionstorage.html">详解前端开发中的存储方案</a></p>
+                
+            </section>
+        </article>
+
+
+
+        
+        <!-- disqus 评论框 start -->
+        <div class="comment">
+            <div id="gitalk-container"></div>
+        </div>
+        <!-- disqus 评论框 end -->
+        
+    </div>
+
+    <aside>
+        
+        <div class="toc-container">
+            <div>
+                <h1>目录</h1>
+                <div class="content">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#用户和用户组"><span class="toc-number">1.</span> <span class="toc-text">用户和用户组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#所有者和权限"><span class="toc-number">2.</span> <span class="toc-text">所有者和权限</span></a></li></ol>
+                </div>
+            </div>
+            <div class="link">
+                友链:<a href="https://indie1024.com?source=huip">indie1024-中国独立开发者列表</a>
+            </div>
+        </div>
+        
+
+    </aside>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var clientID = "79c2731c565cbb9ed73b";
+    var clientSecret = "68d6fd68283e05517ef76929eafc4ca2b977d10e";
+    var repo = "huipBlogComments";
+    var owner = "huip";
+    var admin = "huip";
+    var gitalk = new Gitalk({
+        clientID: clientID,
+        clientSecret: clientSecret,
+        repo: repo,
+        owner: owner,
+        admin: admin,
+        id: location.pathname, // Ensure uniqueness and length less than 50
+        distractionFreeMode: true // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+  <footer>
+    <div class="copyright">
+        <div>
+            &copy;
+            2019 | Powered by <a href="/" target="_blank">huip</a>&nbsp
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+    var isDown = true
+    var oldY = 0
+    inView.offset(50)
+
+    document.body.addEventListener('touchstart', function () {});
+
+    window.addEventListener('scroll', _.throttle(e => {
+        var currentY = window.scrollY
+        if ((oldY - currentY) < 0) {
+            isDown = true
+        } else {
+            isDown = false
+        }
+        oldY = currentY
+    }, 250))
+
+    $("article img").each(function () {
+        var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+        $(this).wrapAll(strA);
+    });
+
+    $('.toc-link').each(function () {
+        var href = $(this).attr("href");
+
+        inView(href).on('exit', () => {
+            if (isDown) {
+                handleActive(href)
+            }
+        })
+
+        inView(href).on('enter', () => {
+            if (!isDown) {
+                handleActive(href)
+            }
+        })
+
+        this.onclick = function (e) {
+            var pos = $(href).offset().top - 10;
+            $("html,body").animate({
+                scrollTop: pos
+            }, 300);
+            setTimeout(() => {
+                handleActive(href)
+            }, 350)
+            return false
+        }
+    })
+
+    function handleActive(href) {
+        document.querySelectorAll('.toc-link').forEach(elm => {
+            elm.classList.remove('active')
+        })
+        document.querySelector(".toc [href='" + href + "']").classList.add('active')
+    }
+</script>
+
+<script src="/js/script.js"></script>
+<script src="/lib/jquery.fancybox.min.js"></script>
+
+
+<script>
+    var url = window.location.href
+    if (url.indexOf('localhost') == -1) {
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?b8680f66d838085ad9f63b7c22e20726";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-45976880-1', 'auto');
+        ga('send', 'pageview');
+    }
+</script>
+</body>
+</html>

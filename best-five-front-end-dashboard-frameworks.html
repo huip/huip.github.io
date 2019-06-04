@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="baidu-site-verification" content="mtEkuH1Xca">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="通过这个博客，希望将自己学到的成果总结出来，与大家一起分享交流">
+  <meta name="keywords" content="独立博客，独立博客，技术开发，前端开发，技术总结，技术分享">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>2018年5大前端中台模板推荐 | huip</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+</head>
+
+<body>
+  <style type="text/css">
+    header.intro-header {
+        background-image: url('/assets/banners/post.jpg')
+        
+    }
+    
+</style>
+
+<header class="intro-header">
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                            <a class="tag" href="/tags/#中台" title="中台">
+                                中台</a>
+                            
+                        </div>
+                        <h1>
+                            2018年5大前端中台模板推荐
+                        </h1>
+                        <h2 class="subheading">
+                            
+                        </h2>
+                        <span class="meta">
+                            作者：
+                            huip 发布时间：
+                            2018-11-21
+                        </span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                huip
+            </a>
+        </div>
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                        <li>
+                        
+                            <a href="/">首页</a>
+                        
+                        </li>
+                    
+                        <li>
+                        
+                            <a href="/about">关于</a>
+                        
+                        </li>
+                    
+                        <li>
+                        
+                            <a href="/archives">归档</a>
+                        
+                        </li>
+                    
+                        <li>
+                        
+                            <a href="/tags">标签</a>
+                        
+                        </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            $navbar.className = " ";
+            setTimeout(function () {
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+  <main id="post">
+    <div class="content">
+        <article>
+            <section class="content markdown-body">
+                <!-- <h1>
+                    2018年5大前端中台模板推荐
+                </h1> -->
+                <!-- <div class='post-meta'>
+                    <i class="fa fa-calendar" aria-hidden="true"></i> <time>
+                        2018/11/21</time>
+                    
+                    | <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+                    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端资源/">前端资源</a>
+  </div>
+
+                    
+                    
+                    |
+                    
+                    <i class="fa fa-tag" aria-hidden="true"></i>
+                    
+                    
+  <a href="/tags/#中台" class="tag">中台</a>
+
+
+                    
+                </div> -->
+
+                <p>伴随着前后端分离开发模式的普及，前端从最初的面向To C终端用户的产品开发，慢慢深入到To B用户以及内部业务系统的开发。</p>
+<p>在前后端分离的开发模式中，后端负责RESTful api的开发，前端负责浏览器端的渲染工作或ssr开发，前端处理的业务逻辑越来越复杂，整个系统的前端开发越来越重。</p>
+<p>保证良好的用户体验以及解决复杂的业务逻辑，成了摆在前端面前最棘手的问题。React.js、Angular.js、Vue.js这些框架就是在解决这些问题时诞生，接下来笔者将介绍基于以上几个框架实现的中台前端框架。</p>
+<h3 id="框架列表"><a href="#框架列表" class="headerlink" title="框架列表"></a>框架列表</h3><h4 id="Ant-design-pro"><a href="#Ant-design-pro" class="headerlink" title="Ant.design.pro"></a>Ant.design.pro</h4><p><img src="/assets/dashboard-frameworks/ant-design-pro.png" alt="ant design pro"></p>
+<p>简介：开箱即用的中台前端/设计解决方案，蚂蚁金服前端出品</p>
+<p>依赖：React.js, Ant.design</p>
+<p>推荐指数：10</p>
+<p><a href="/go/?to=https://preview.pro.ant.design/dashboard/analysis" target="_blank">预览地址</a></p>
+<p><a href="/go/?to=https://github.com/ant-design/ant-design-pro" target="_blank">Github地址</a></p>
+<h4 id="blur-admin"><a href="#blur-admin" class="headerlink" title="blur-admin"></a>blur-admin</h4><p><img src="/assets/dashboard-frameworks/blur-admin.png" alt="blur-admin"></p>
+<p>简介：基于Angular的中台前端模板</p>
+<p>依赖：Angular,Bootstrap,Jquery,Charts,Maps</p>
+<p>推荐指数：6</p>
+<p><a href="/go/?to=http://akveo.com/blur-admin-mint/" target="_blank">预览地址</a></p>
+<p><a href="/go/?to=https://github.com/akveo/blur-admin" target="_blank">Github地址</a></p>
+<h4 id="vue-material-admin"><a href="#vue-material-admin" class="headerlink" title="vue-material-admin"></a>vue-material-admin</h4><p><img src="/assets/dashboard-frameworks/vue-material-admin.png" alt="vue-material-admin"></p>
+<p>简介：基于Vue.js的Material Design中台前端模板</p>
+<p>依赖：Vuetify.js，Vue.js，ECharts.js，Stylus.js</p>
+<p>推荐指数：9</p>
+<p><a href="/go/?to=http://vma.isocked.com/#/dashboard" target="_blank">预览地址</a></p>
+<p><a href="/go/?to=https://github.com/tookit/vue-material-admin" target="_blank">Github地址</a></p>
+<h4 id="vue2-admin-lte"><a href="#vue2-admin-lte" class="headerlink" title="vue2-admin-lte"></a>vue2-admin-lte</h4><p><img src="/assets/dashboard-frameworks/vue2-admin-lte.png" alt="vue2-admin-lte"></p>
+<p>简介：基于Vue.js 2.x的中台前端模板</p>
+<p>依赖：Vue.js，Bootstrap，Chart.js，Vuex，Font-awesome</p>
+<p>推荐指数：8</p>
+<p><a href="/go/?to=https://devjin0617.github.io/vue2-admin-lte/" target="_blank">预览地址</a></p>
+<p><a href="/go/?to=https://github.com/devjin0617/vue2-admin-lte" target="_blank">Github地址</a></p>
+<h4 id="iview-admin"><a href="#iview-admin" class="headerlink" title="iview-admin"></a>iview-admin</h4><p><img src="/assets/dashboard-frameworks/iview-admin.png" alt="iview-admin"></p>
+<p>简介：iView admin是基于Vue.js，搭配使用iView UI组件库形成的一套后台集成解决方案，由TalkingData前端可视化团队部分成员开发维护.</p>
+<p>依赖：Vue.js,iview,Echarts,axios</p>
+<p>推荐指数：7</p>
+<p><a href="/go/?to=https://admin.iviewui.com" target="_blank">预览地址</a></p>
+<p><a href="/go/?to=https://github.com/iview/iview-admin" target="_blank">Github地址</a></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>在企业级的应用开发中，中台前端开发已经占用了前端很大部分的时间和精力，选好一个开箱即用的中台前端框架至关重要。好的交互语言、工具支持、生态环境都是综合考虑的重要因素，希望以上推荐的几款中台前端框架，能有一款让你喜欢。</p>
+
+                
+                <div class="money-like" id="like-money">
+                    <div class="reward-button">赏
+                        <span class="money-code">
+                            <span class="alipay-code">
+                                <a href="javascript:;">
+                                    <img class="alipay-img" src="/assets/renew/zhb-qrcode.png"><b>支付宝扫码打赏</b>
+                                </a>
+                            </span>
+                            <span class="wechat-code">
+                                <a href="javascript:;">
+                                    <img class="wechat-img" src="/assets/renew/wx-qrcode.png"><b>微信扫码打赏</b>
+                                </a>
+                            </span>
+                        </span>
+                    </div>
+                    <p class="money-notice">如果你认为我的文章对你有帮助,欢迎点击上方按钮对我打赏</p>
+                </div>
+                
+                
+                <h3>推荐阅读</h3>
+                
+
+                
+                <p><a href="the-best-data-visualization-frameworks.html">国内外优秀的前端可视化框架推荐</a></p>
+                
+
+                
+                <p><a href="front-end-engineer-must-reading-ten-books.html">前端开发工程师必读的10本书</a></p>
+                
+            </section>
+        </article>
+
+
+
+        
+        <!-- disqus 评论框 start -->
+        <div class="comment">
+            <div id="gitalk-container"></div>
+        </div>
+        <!-- disqus 评论框 end -->
+        
+    </div>
+
+    <aside>
+        
+        <div class="toc-container">
+            <div>
+                <h1>目录</h1>
+                <div class="content">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#框架列表"><span class="toc-number">1.</span> <span class="toc-text">框架列表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Ant-design-pro"><span class="toc-number">1.1.</span> <span class="toc-text">Ant.design.pro</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#blur-admin"><span class="toc-number">1.2.</span> <span class="toc-text">blur-admin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue-material-admin"><span class="toc-number">1.3.</span> <span class="toc-text">vue-material-admin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue2-admin-lte"><span class="toc-number">1.4.</span> <span class="toc-text">vue2-admin-lte</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#iview-admin"><span class="toc-number">1.5.</span> <span class="toc-text">iview-admin</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
+                </div>
+            </div>
+            <div class="link">
+                友链:<a href="https://indie1024.com?source=huip">indie1024-中国独立开发者列表</a>
+            </div>
+        </div>
+        
+
+    </aside>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var clientID = "79c2731c565cbb9ed73b";
+    var clientSecret = "68d6fd68283e05517ef76929eafc4ca2b977d10e";
+    var repo = "huipBlogComments";
+    var owner = "huip";
+    var admin = "huip";
+    var gitalk = new Gitalk({
+        clientID: clientID,
+        clientSecret: clientSecret,
+        repo: repo,
+        owner: owner,
+        admin: admin,
+        id: location.pathname, // Ensure uniqueness and length less than 50
+        distractionFreeMode: true // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+  <footer>
+    <div class="copyright">
+        <div>
+            &copy;
+            2019 | Powered by <a href="/" target="_blank">huip</a>&nbsp
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+    var isDown = true
+    var oldY = 0
+    inView.offset(50)
+
+    document.body.addEventListener('touchstart', function () {});
+
+    window.addEventListener('scroll', _.throttle(e => {
+        var currentY = window.scrollY
+        if ((oldY - currentY) < 0) {
+            isDown = true
+        } else {
+            isDown = false
+        }
+        oldY = currentY
+    }, 250))
+
+    $("article img").each(function () {
+        var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+        $(this).wrapAll(strA);
+    });
+
+    $('.toc-link').each(function () {
+        var href = $(this).attr("href");
+
+        inView(href).on('exit', () => {
+            if (isDown) {
+                handleActive(href)
+            }
+        })
+
+        inView(href).on('enter', () => {
+            if (!isDown) {
+                handleActive(href)
+            }
+        })
+
+        this.onclick = function (e) {
+            var pos = $(href).offset().top - 10;
+            $("html,body").animate({
+                scrollTop: pos
+            }, 300);
+            setTimeout(() => {
+                handleActive(href)
+            }, 350)
+            return false
+        }
+    })
+
+    function handleActive(href) {
+        document.querySelectorAll('.toc-link').forEach(elm => {
+            elm.classList.remove('active')
+        })
+        document.querySelector(".toc [href='" + href + "']").classList.add('active')
+    }
+</script>
+
+<script src="/js/script.js"></script>
+<script src="/lib/jquery.fancybox.min.js"></script>
+
+
+<script>
+    var url = window.location.href
+    if (url.indexOf('localhost') == -1) {
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?b8680f66d838085ad9f63b7c22e20726";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-45976880-1', 'auto');
+        ga('send', 'pageview');
+    }
+</script>
+</body>
+</html>

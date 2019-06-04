@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="baidu-site-verification" content="mtEkuH1Xca">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="通过这个博客，希望将自己学到的成果总结出来，与大家一起分享交流">
+  <meta name="keywords" content="独立博客，独立博客，技术开发，前端开发，技术总结，技术分享">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>huip</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+</head>
+
+<body>
+  <style type="text/css">
+    header.intro-header {
+        background-image: url('/assets/banners/2018-12-08.jpg')
+        
+    }
+    
+</style>
+
+<header class="intro-header">
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+                    <div class="site-heading">
+                        <h1>
+                            huip
+                        </h1>
+                        <span class="subheading">
+                            通过这个博客，希望将自己学到的成果总结出来，与大家一起分享交流
+                        </span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                huip
+            </a>
+        </div>
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                        <li>
+                        
+                            <a href="/">首页</a>
+                        
+                        </li>
+                    
+                        <li>
+                        
+                            <a href="/about">关于</a>
+                        
+                        </li>
+                    
+                        <li>
+                        
+                            <a href="/archives">归档</a>
+                        
+                        </li>
+                    
+                        <li>
+                        
+                            <a href="/tags">标签</a>
+                        
+                        </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            $navbar.className = " ";
+            setTimeout(function () {
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+  <main id="index">
+  <div class="posts-list">
+    
+      <section>
+        <a href="/what-differents-bettwen-px-em-rem.html">
+          <h3 class="post-head">
+            详解CSS中的度量单位px|em|rem
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <p>在前端开发过程中，我们将大量的时间都花在了页面布局开发上，在页面布局开发中我们又把很多的精力放在了如何处理网页中的排版问题，而其中最让我迷惑的是如何正确的使用px,em,rem这几个网页中常见的度量单位，相信这几个单位在开发过程中也困扰过你，到现在也还没有真正弄明白.</p>
+              
+          
+        </div>
+        <div class="post-meta">
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018/11/26</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端基础/">前端基础</a>
+  </div>
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="/tags/#CSS" class="tag">CSS</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="/the-best-data-visualization-frameworks.html">
+          <h3 class="post-head">
+            国内外优秀的前端可视化框架推荐
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <p>当前大数据，机器学习等异常火热，每天都能看到各种AI替代人类某些职业的新闻。数据是包含某种信息组合的载体，大数据归根结底是将大量的数据提炼出来，形成人类理解的自然语言，为人们做商业决策时提供支持。</p>
+              
+          
+        </div>
+        <div class="post-meta">
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018/11/22</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端资源/">前端资源</a>
+  </div>
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="/tags/#数据可视化" class="tag">数据可视化</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="/best-five-front-end-dashboard-frameworks.html">
+          <h3 class="post-head">
+            2018年5大前端中台模板推荐
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <p>伴随着前后端分离开发模式的普及，前端从最初的面向To C终端用户的产品开发，慢慢深入到To B用户以及内部业务系统的开发。</p>
+              
+          
+        </div>
+        <div class="post-meta">
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018/11/21</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端资源/">前端资源</a>
+  </div>
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="/tags/#中台" class="tag">中台</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="/front-end-engineer-must-reading-ten-books.html">
+          <h3 class="post-head">
+            前端开发工程师必读的10本书
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <p>web前端开发经过了10多年的快速发展，从最初简单的静态页面开发，到如今各种MVVM的开发框架（Angular.js,Vue.js,React.js）盛行。前端已经从最初的刀耕火种的阶段进入了工具盛行的工业时代。</p>
+              
+          
+        </div>
+        <div class="post-meta">
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018/11/20</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/书单/">书单</a>
+  </div>
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="/tags/#前端书单" class="tag">前端书单</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="/linux-file-permmison-view.html">
+          <h3 class="post-head">
+            linux文件系统权限详解
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <p>  linux系统是一种多用户的操作系统，为了保证文件的安全性，linux系统的提出了『所有者』和『权限』这两个概念，通过这两个概念控制用户是否可以查看或者修改文件。在接下来的文章中，我们将学习这两个概念，并介绍如何通过命令去操作它们。</p>
+              
+          
+        </div>
+        <div class="post-meta">
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018/10/20</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="/tags/#系统权限" class="tag">系统权限</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="/cookie-localstorage-sessionstorage.html">
+          <h3 class="post-head">
+            详解前端开发中的存储方案
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <p>在前端开发过程中，我们经常会遇到需要将数据存储在浏览器端的应用场景，那么浏览器端到底为我们都提供了哪些解决方案呢？接下来笔者将分别为大家介绍浏览器端的三种常用存储方案–cookie、localStorage和sessionStorage。</p>
+              
+          
+        </div>
+        <div class="post-meta">
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018/09/10</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端基础/">前端基础</a>
+  </div>
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="/tags/#前端存储" class="tag">前端存储</a>
+
+
+          
+        </div>
+      </section>
+    
+  </div>
+  <aside>
+    
+    <div class="search">
+      <div class="content">
+        <form action="//www.google.com/search" target="_blank" class="search-form">
+          <input type="text" name="q" maxlength="20" placeholder="Search">
+          <input type="hidden" name="sitesearch" value="https://huip.org">
+        </form>
+      </div>
+    </div>
+    
+    
+      <div class="avatar">
+        <h1>
+            <a href="/about/">关于我</a>
+        </h1>
+        <img src="/assets/logo.jpeg" alt="avatar">
+        
+            <div class="content">
+                <span>Follow your heart, Follow your dream</span>
+            </div>
+        
+      </div>
+    
+    
+      <div class="categories">
+        <h1>
+            <a href="/categories/">分类</a>
+        </h1>
+        <div class="content">
+          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/书单/">书单</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端基础/">前端基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端资源/">前端资源</a></li></ul>
+        </div>
+      </div>
+    
+    
+  </aside>
+</main>
+
+
+  <footer>
+    <div class="copyright">
+        <div>
+            &copy;
+            2019 | Powered by <a href="/" target="_blank">huip</a>&nbsp
+        </div>
+    </div>
+</footer>
+
+
+
+<script>
+    var url = window.location.href
+    if (url.indexOf('localhost') == -1) {
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?b8680f66d838085ad9f63b7c22e20726";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-45976880-1', 'auto');
+        ga('send', 'pageview');
+    }
+</script>
+</body>
+</html>
