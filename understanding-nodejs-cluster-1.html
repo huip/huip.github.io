@@ -11,7 +11,7 @@
     <link rel="icon" href="/favicon.ico">
   
     
-  <title>详解CSS中的度量单位px|em|rem | huip</title>
+  <title>详解Node.js Cluster（一） | huip</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/lib/bootstrap.min.css">
@@ -37,12 +37,12 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                            <a class="tag" href="/tags/#CSS" title="CSS">
-                                CSS</a>
+                            <a class="tag" href="/tags/#Cluster" title="Cluster">
+                                Cluster</a>
                             
                         </div>
                         <h1>
-                            详解CSS中的度量单位px|em|rem
+                            详解Node.js Cluster（一）
                         </h1>
                         <h2 class="subheading">
                             
@@ -50,7 +50,7 @@
                         <span class="meta">
                             作者：
                             huip 发布时间：
-                            2018-11-26
+                            2018-12-01
                         </span>
                     </div>
                     
@@ -132,16 +132,16 @@
         <article>
             <section class="content markdown-body">
                 <!-- <h1>
-                    详解CSS中的度量单位px|em|rem
+                    详解Node.js Cluster（一）
                 </h1> -->
                 <!-- <div class='post-meta'>
                     <i class="fa fa-calendar" aria-hidden="true"></i> <time>
-                        2018/11/26</time>
+                        2018/12/01</time>
                     
                     | <i class="fa fa-folder-open-o" aria-hidden="true"></i>
                     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/前端基础/">前端基础</a>
+    <a class="article-category-link" href="/categories/Node-js/">Node.js</a>
   </div>
 
                     
@@ -151,31 +151,27 @@
                     <i class="fa fa-tag" aria-hidden="true"></i>
                     
                     
-  <a href="/tags/#CSS" class="tag">CSS</a>
+  <a href="/tags/#Cluster" class="tag">Cluster</a>
 
 
                     
                 </div> -->
 
-                <p>在前端开发过程中，我们将大量的时间都花在了页面布局开发上，在页面布局开发中我们又把很多的精力放在了如何处理网页中的排版问题，而其中最让我迷惑的是如何正确的使用px,em,rem这几个网页中常见的度量单位，相信这几个单位在开发过程中也困扰过你，到现在也还没有真正弄明白.</p>
-<p>本篇文章我将介绍这几个度量单位的特性以及如何正确使用它们。</p>
-<h2 id="px"><a href="#px" class="headerlink" title="px"></a>px</h2><p>像素是静态的度量单位。它是一个跨平台的、跨浏览器的精确设置字体大小的方法。由于不同浏览器为实现相同的显示效果而使用了不同的渲染算法，所以最终给大家呈现出来显示效果可能会有微小的差异。</p>
-<h2 id="em"><a href="#em" class="headerlink" title="em"></a>em</h2><p>em是动态的度量单位。1em等于元素的父元素的字体大小，如果你在网页中任何位置都没有设置文字大小的话，那么1em将等于浏览器默认的文字大小，通常是16px。你可以通过以下的计算公式换算你想要的em值：</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">em</span> = 希望得到的像素大小 / 父元素字体像素大小</span><br></pre></td></tr></table></figure>
-<p>例如，假设body的文字大小设为1em，且浏览器默认1em = 16px。如果你想得到12px，那你就可设定0.75em (12/16 = 0.75)。同样的，如果你想设定文字大小为10px，那就定义0.625em (10/16 = 0.625)；若想要22px就定义1.375em (22/16 = 1.375)。</p>
-<p>通常我们对10进制的转换体系比较熟悉，因此为了方便的使用em，我们通常会将body的字体大小设置为62.5%(16 x 62.5 = 10)。这样网页的基准单位就是10px了，我们能够快速的通过10进制来转换来计算出我们想要设置的字体大小了。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">62.5%</span>; <span class="comment">/* 1em = 10px */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1.6em</span>; <span class="comment">/* 1.6em = 16px */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>由于em可以自动适应用户的字体，em是一个非常有用的CSS单位</p>
-<h2 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h2><p>rem是一个相对于html根节点的度量单位。由于rem和父节点无关，因此假设根节点的字体大小为16px,那么对于所有的页面元素来说 1rem = 16px。如果没有特殊指明根节点的字体大小，1rem就等于浏览器的默认字体大小（通常为16px）</p>
-<p>同样的在使用rem过程中为了更直观的去计算rem和px的对应关系，我们通常在使用rem时也会将html的字体大小设置为62.5%</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">62.5%</span> <span class="comment">/* 1rem = 10px */</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1.6rem</span>; <span class="comment">/* 1.6rem = 16px */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过以上的介绍我们基本上对px,em,rem有了比较深入的了解，根据以上的总结我们得出以下各个单位的使用情况。</p>
-<p>px:适用于有特定大小的资源比如图片</p>
-<p>em:适用于局部的排版布局，比如设置局部的padding margin,border等</p>
-<p>rem:适用于网页中父级资源的大小设置</p>
-<p>下面写一段CSS简单的布局实例来具体说明这个问题</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">62.5%</span>; <span class="comment">/* 将页面的基础字体大小设置成为10px */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1.6rem</span>; <span class="comment">/*将页面正文的字体设置为16px*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">2em</span>; <span class="comment">/*将页面中的p标点的字体大小设置为32px */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.gravator</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">32px</span>; <span class="comment">/* 将页面中的.gravator类的宽度设置为32px */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上适用场景的定义不是绝对的，需要根据每个人的习惯来选择，总结出来一套自己的页面布局方案才是最好的。</p>
+                <p>有过Node.js开发经验的小伙伴都知道，Node.js应用是运行在单线程上的单实例应用，这意味着Node.js默认情况下无法发挥多核系统的优势。通俗的说，如果你的计算机有8个CPU，如果你有一个应用通过node app.js来运行，将会只使用1个内核，那么其它的内核将被白白浪费。</p>
+<p>值得庆幸的是,Node.js引入了 <strong>Cluster</strong> 模块来解决应用在多核运行的场景，从而最大化计算资源。</p>
+<h3 id="Cluster示例"><a href="#Cluster示例" class="headerlink" title="Cluster示例"></a>Cluster示例</h3><p><strong>Cluster</strong>模块能够很容易的创建一个能够共享服务器端口的多进程的服务端程序，如下所示:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cluster = <span class="built_in">require</span>(<span class="string">'cluster'</span>);</span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> numCPUs = <span class="built_in">require</span>(<span class="string">'os'</span>).cpus().length;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (cluster.isMaster) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Master <span class="subst">$&#123;process.pid&#125;</span> is running`</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Fork workers.</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; numCPUs; i++) &#123;</span><br><span class="line">    cluster.fork();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  cluster.on(<span class="string">'exit'</span>, <span class="function">(<span class="params">worker, code, signal</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`worker <span class="subst">$&#123;worker.process.pid&#125;</span> died`</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// Workers can share any TCP connection</span></span><br><span class="line">  <span class="comment">// In this case it is an HTTP server</span></span><br><span class="line">  http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>);</span><br><span class="line">    res.end(<span class="string">'hello world\n'</span>);</span><br><span class="line">  &#125;).listen(<span class="number">8000</span>);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Worker <span class="subst">$&#123;process.pid&#125;</span> started`</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Cluster是如何工作的"><a href="#Cluster是如何工作的" class="headerlink" title="Cluster是如何工作的?"></a>Cluster是如何工作的?</h3><p>从上面的事例我们能看到，worker进程是通过child_process.fork()产生，因此worker和主节点可以通过IPC来相互通信。</p>
+<h4 id="cluster模块的两种分发模式"><a href="#cluster模块的两种分发模式" class="headerlink" title="cluster模块的两种分发模式"></a>cluster模块的两种分发模式</h4><ol>
+<li>循环模式（round-robin）这是Node.js在除了windows系统以外的系统上默认采用的的模式。该模式的实现机制为，主进程监听某个计算机端口，主进程接收新的连接并且通过轮询的模式来分发给工作进程。Node.js通过内置的某些聪明的算法来解决单个工作进程过载的问题。</li>
+<li>master进程创建监听socket后发送给工作进程，然后工作进程直接接受连接。</li>
+</ol>
+<p>通过以上两种模式的对比，理论上来说第二种模式会使最好的方案。但是根据使用结果观察来看，结果却不是很理想。由于操作系统调度的多变性，连接的分发常常是一种极不均衡的状态。在观察中有70%的请求分发给了8个进程中的2个。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Node.js原生并不支持路由机制，因此在设计应用时，不能过度依赖内存数据对象，如session和login。</p>
+<p>工作进程可以被杀死或者是由程序主动重建，由于工作进程运行时是绝对独立的，因此这些操作并不会影响其它的工作进程。只要有工作进程在运行中，服务就会一直接收新的请求并且持续服务。相反的，如果没有存活的工作进程，已经建立的连接将会被摧毁并且新产生的请求连接将会被拒绝。</p>
+<p>Node.js并不会自动管理多个工作进程，这就需要编程人员根据自己的需求去管理工作进程池。</p>
+<p>cluster模块主要适用于网络编程方向，但是对于其他需要工作进程的的场景依然适用。</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://nodejs.org/api/cluster.html" target="_blank" rel="noopener">Node.js Cluster</a></p>
 
                 
                 <div class="money-like" id="like-money">
@@ -201,11 +197,9 @@
                 
 
                 
-                <p><a href="understanding-nodejs-cluster-1.html">详解Node.js Cluster（一）</a></p>
-                
 
                 
-                <p><a href="the-best-data-visualization-frameworks.html">国内外优秀的前端可视化框架推荐</a></p>
+                <p><a href="what-differents-bettwen-px-em-rem.html">详解CSS中的度量单位px|em|rem</a></p>
                 
             </section>
         </article>
@@ -227,7 +221,7 @@
             <div>
                 <h1>目录</h1>
                 <div class="content">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#px"><span class="toc-number">1.</span> <span class="toc-text">px</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#em"><span class="toc-number">2.</span> <span class="toc-text">em</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rem"><span class="toc-number">3.</span> <span class="toc-text">rem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cluster示例"><span class="toc-number">1.</span> <span class="toc-text">Cluster示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cluster是如何工作的"><span class="toc-number">2.</span> <span class="toc-text">Cluster是如何工作的?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cluster模块的两种分发模式"><span class="toc-number">2.1.</span> <span class="toc-text">cluster模块的两种分发模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
                 </div>
             </div>
         </div>
